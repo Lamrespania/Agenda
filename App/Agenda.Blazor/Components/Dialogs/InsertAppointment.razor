@@ -1,0 +1,45 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudTextField Class="mt-5" Label="Comment" @bind-Value="Comment" MaxLength="50" />
+        <MudSelect Class="mt-3" Label="Type" @bind-Value="Type">
+            @foreach (AppointmentType type in Enum.GetValues<AppointmentType>())
+            {
+                <MudSelectItem Value="@type">@type</MudSelectItem>
+            }
+        </MudSelect>
+        <MudDatePicker Class="mt-3" Label="Date" @bind-Date="Date" />
+        <MudTimePicker Class="mt-3" Label="Time" @bind-Time="Time" AmPm="false" />
+    </DialogContent>
+
+    <DialogActions>
+        <MudGrid Class="d-flex justify-center ml-0 mt-4 mb-10">
+            <MudButton Class="px-8 mr-4" Variant="Variant.Outlined" OnClick="Insert">Insert</MudButton>
+            <MudButton Class="px-8" Variant="Variant.Outlined" OnClick="Cancel">Cancel</MudButton>
+        </MudGrid>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    public IMudDialogInstance DialogInstance { get; set; }
+
+    public string Comment { get; set; } = string.Empty;
+    public AppointmentType Type { get; set; } = AppointmentType.Default;
+    public DateTime? Date { get; set; } = DateTime.Now;
+
+    public TimeSpan? Time
+    {
+        get { return Date.Value.TimeOfDay; }
+        set { Date = Date.Value.Date + value.Value; }
+    }
+
+    private void Insert()
+    {
+        DialogInstance.Close(DialogResult.Ok(new Appointment(0, Comment, Type, Date.Value, DateTime.Now, null)));
+    }
+
+    private void Cancel()
+    {
+        DialogInstance.Cancel();
+    }
+}

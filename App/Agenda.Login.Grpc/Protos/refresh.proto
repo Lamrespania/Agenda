@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "Agenda.Login.Grpc";
+
+package refresh;
+
+service Refresh {
+  rpc Refresh (RefreshRequest) returns (RefreshReply);
+}
+
+message RefreshRequest {
+  string username = 1;
+  string refreshToken = 2;
+}
+
+message RefreshReply {
+  bool authorized = 1;
+  string token = 2;
+  int32 tokenLifetimeMin = 3;
+}

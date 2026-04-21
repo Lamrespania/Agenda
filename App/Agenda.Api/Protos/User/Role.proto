@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+option csharp_namespace = "Agenda.Api";
+
+enum Role { Admin = 0; Manager = 1; }

@@ -1,0 +1,95 @@
+[
+  {
+    "Name": "Back",
+    "Projects": [
+      {
+        "Path": "Agenda.Login.Grpc\\Agenda.Login.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.User.Grpc\\Agenda.User.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.Api\\Agenda.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  },
+  {
+    "Name": "BackAndWinForms",
+    "Projects": [
+      {
+        "Path": "Agenda.Api\\Agenda.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.Login.Grpc\\Agenda.Login.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.WinForms\\Agenda.WinForms.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Agenda.User.Grpc\\Agenda.User.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  },
+  {
+    "Name": "BackAndWPF",
+    "Projects": [
+      {
+        "Path": "Agenda.Api\\Agenda.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.Login.Grpc\\Agenda.Login.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.WPF\\Agenda.WPF.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Agenda.User.Grpc\\Agenda.User.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  },
+  {
+    "Name": "BackAndBlazor",
+    "Projects": [
+      {
+        "Path": "Agenda.Api\\Agenda.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.Login.Grpc\\Agenda.Login.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.User.Grpc\\Agenda.User.Grpc.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      },
+      {
+        "Path": "Agenda.Blazor\\Agenda.Blazor.csproj",
+        "Action": "Start",
+        "DebugTarget": "http"
+      }
+    ]
+  }
+]

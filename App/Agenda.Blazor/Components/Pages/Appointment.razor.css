@@ -1,0 +1,12 @@
+﻿::deep .tab-panel {
+    height: 48px !important;
+}
+
+::deep .grid-scroll {
+    overflow-y: scroll;
+    height: calc(100vh - 48px);
+}
+
+::deep .comment-column {
+    width: 30%;
+}

@@ -1,0 +1,8 @@
+﻿@page "/Logout"
+@model Agenda.Blazor.Pages.LogoutModel
+
+<script>
+    localStorage.setItem('Agenda.Blazor.Logout', Date.now().toString());
+
+    window.location.href = '/Login';
+</script>

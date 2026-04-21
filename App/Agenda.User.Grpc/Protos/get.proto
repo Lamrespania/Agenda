@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "Agenda.User.Grpc";
+
+import "Protos/Role.proto";
+import "google/protobuf/timestamp.proto";
+
+package get;
+
+service Get {
+  rpc Get (GetRequest) returns (GetReply);
+}
+
+message GetRequest {
+  int32 id = 1;
+}
+
+message GetReply {
+  int32 id = 1;
+  optional string username = 2;
+  optional string password = 3;
+  optional Role role = 4;
+  optional google.protobuf.Timestamp created = 5;
+}

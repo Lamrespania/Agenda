@@ -1,0 +1,50 @@
+services:
+  blazor:
+    build:
+      context: .
+      target: blazor
+    ports:
+      - "10000:10000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - API_URL=${API_URL}
+      - API_TIMEOUT_SEC=${API_TIMEOUT_SEC}
+      - COOKIE_EXPIRE_HOUR=${COOKIE_EXPIRE_HOUR}
+
+  api:
+    build:
+      context: .
+      target: api
+    ports:
+      - "11000:11000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - AGENDA_DB=${AGENDA_DB}
+      - LOGIN_SERVICE_URL=${LOGIN_SERVICE_URL}
+      - USER_SERVICE_URL=${USER_SERVICE_URL}
+
+  login:
+    build:
+      context: .
+      target: login
+    ports:
+      - "12000:12000"
+    volumes:
+      - ./DB/User.db:/DB/User.db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - USER_DB=${USER_DB}
+      - USER_TOKEN_LIFETIME_MIN=${USER_TOKEN_LIFETIME_MIN}
+      - USER_TOKEN_REFRESH_LIFETIME_HOUR=${USER_TOKEN_REFRESH_LIFETIME_HOUR}
+
+  user:
+    build:
+      context: .
+      target: user
+    ports:
+      - "13000:13000"
+    volumes:
+      - ./DB/User.db:/DB/User.db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - USER_DB=${USER_DB}

@@ -1,0 +1,29 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://0.0.0.0:12000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "USER_DB": "Data Source={0}User.db",
+        "USER_TOKEN_LIFETIME_MIN": "5",
+        "USER_TOKEN_REFRESH_LIFETIME_HOUR": "1"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://0.0.0.0:12001;http://0.0.0.0:12000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "USER_DB": "Data Source={0}User.db",
+        "USER_TOKEN_LIFETIME_MIN": "5",
+        "USER_TOKEN_REFRESH_LIFETIME_HOUR": "1"
+      }
+    }
+  }
+}

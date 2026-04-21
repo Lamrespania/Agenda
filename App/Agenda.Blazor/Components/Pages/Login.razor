@@ -1,0 +1,26 @@
+﻿@page "/Login"
+
+@layout Layout.EmptyLayout
+
+@inherits AnonymousPageBase
+
+@inject LoginViewModel _loginVM
+
+<PageTitle>Login</PageTitle>
+
+<MudPaper Class="lightSmokeBackColor">
+    <MudContainer MaxWidth="MaxWidth.ExtraSmall" Class="d-flex justify-center align-center vh-100">
+        <MudPaper Elevation="8" Class="pa-6 w-100">
+
+            <MudTextField Class="mt-10" Label="Username" Variant="Variant.Outlined" FullWidth="true" Disabled="_loginVM.Disabled"
+                          Required="true" RequiredError="Username is required" HelperText="&nbsp;" @bind-Value="_loginVM.Username" />
+
+            <MudTextField Class="mt-4" Label="Password" Variant="Variant.Outlined" FullWidth="true" InputType="InputType.Password"
+                          Disabled="_loginVM.Disabled" Required="true" RequiredError="Password is required" HelperText="&nbsp;"
+                          @bind-Value="_loginVM.Password" />
+
+            <MudButton Class="mt-4 mb-10" Variant="Variant.Outlined" FullWidth="true"
+                       Disabled="_loginVM.Disabled" OnClick="_loginVM.Login">Login</MudButton>
+        </MudPaper>
+    </MudContainer>
+</MudPaper>

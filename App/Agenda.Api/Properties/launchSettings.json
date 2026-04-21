@@ -1,0 +1,29 @@
+﻿{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:11000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AGENDA_DB": "Data Source={0}Agenda.db;",
+        "LOGIN_SERVICE_URL": "http://localhost:12000",
+        "USER_SERVICE_URL": "http://localhost:13000"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:11001;http://localhost:11000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "AGENDA_DB": "Data Source={0}Agenda.db;",
+        "LOGIN_SERVICE_URL": "http://localhost:12000",
+        "USER_SERVICE_URL": "http://localhost:13000"
+      }
+    }
+  }
+}

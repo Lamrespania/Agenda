@@ -1,0 +1,94 @@
+﻿@page "/Appointment"
+
+@attribute [Authorize]
+
+@inject AppointmentViewModel _appointmentVM
+
+<PageTitle>Appointment</PageTitle>
+
+<div>
+    <MudGrid Class="mt-0">
+        <MudItem xs="10" Class="vh-100 pt-0">
+            <MudTabs @bind-ActivePanelIndex="_appointmentVM.IndexTabSelected">
+                <MudTabPanel Text="All" Class="tab-panel">
+                    <MudDataGrid Class="grid-scroll" FixedHeader="true" Hover="true" SortMode="SortMode.None"
+                                 Items="_appointmentVM.AppointmentsAll" @bind-SelectedItem="_appointmentVM.AppointmentsAllSelected">
+                        <Columns>
+                            <SelectColumn />
+                            <PropertyColumn Title="Id" Property="p => p.Id" />
+                            <PropertyColumn Class="comment-column" Title="Comment" Property="p => p.Comment" />
+                            <PropertyColumn Title="Type" Property="p => p.Type" />
+                            <PropertyColumn Title="Date" Property="p => p.Date" />
+                            <PropertyColumn Title="Created" Property="p => p.Created" />
+                            <PropertyColumn Title="Modified" Property="p => p.Modified" />
+                        </Columns>
+                    </MudDataGrid>
+                </MudTabPanel>
+
+                <MudTabPanel Text="Current" Class="tab-panel">
+                    <MudDataGrid Class="grid-scroll" FixedHeader="true" Hover="true" SortMode="SortMode.None"
+                                 Items="_appointmentVM.AppointmentsCurrent" @bind-SelectedItem="_appointmentVM.AppointmentsCurrentSelected">
+                        <Columns>
+                            <SelectColumn />
+                            <PropertyColumn Title="Id" Property="p => p.Id" />
+                            <PropertyColumn Class="comment-column" Title="Comment" Property="p => p.Comment" />
+                            <PropertyColumn Title="Type" Property="p => p.Type" />
+                            <PropertyColumn Title="Date" Property="p => p.Date" />
+                            <PropertyColumn Title="Created" Property="p => p.Created" />
+                            <PropertyColumn Title="Modified" Property="p => p.Modified" />
+                        </Columns>
+                    </MudDataGrid>
+                </MudTabPanel>
+
+                <MudTabPanel Text="Expired" Class="tab-panel">
+                    <MudDataGrid Class="grid-scroll" FixedHeader="true" Hover="true" SortMode="SortMode.None"
+                                 Items="_appointmentVM.AppointmentsExpired" @bind-SelectedItem="_appointmentVM.AppointmentsExpiredSelected">
+                        <Columns>
+                            <SelectColumn />
+                            <PropertyColumn Title="Id" Property="p => p.Id" />
+                            <PropertyColumn Class="comment-column" Title="Comment" Property="p => p.Comment" />
+                            <PropertyColumn Title="Type" Property="p => p.Type" />
+                            <PropertyColumn Title="Date" Property="p => p.Date" />
+                            <PropertyColumn Title="Created" Property="p => p.Created" />
+                            <PropertyColumn Title="Modified" Property="p => p.Modified" />
+                        </Columns>
+                    </MudDataGrid>
+                </MudTabPanel>
+            </MudTabs>
+        </MudItem>
+
+        <MudItem xs="2" Class=" d-flex flex-column align-end lightSmokeBackColor pr-6">
+            <MudButton Class="mt-7 mb-2" Variant="Variant.Outlined" FullWidth="true"
+                       Disabled="_appointmentVM.Disabled" OnClick="_appointmentVM.Get">Get</MudButton>
+
+            <MudButton Class="mb-2" Variant="Variant.Outlined" FullWidth="true"
+                       Disabled="_appointmentVM.DisabledDelete" OnClick="_appointmentVM.Delete">Delete</MudButton>
+
+            <MudButton Class="mb-2" Variant="Variant.Outlined" FullWidth="true"
+                       Disabled="_appointmentVM.Disabled" OnClick="_appointmentVM.Insert">Insert</MudButton>
+
+            <MudButton Class="mb-2" Variant="Variant.Outlined" FullWidth="true"
+                       Disabled="_appointmentVM.DisabledUpdate" OnClick="_appointmentVM.Update">Update</MudButton>
+
+            <MudButton Class="mb-2" Variant="Variant.Outlined" FullWidth="true"
+                       Disabled="_appointmentVM.Disabled" OnClick="_appointmentVM.Exit">Exit</MudButton>
+
+            @if (_appointmentVM.Disabled)
+            {
+                <MudButton Class="mt-auto mb-7" Variant="Variant.Outlined" FullWidth="true"
+                           Disabled="_appointmentVM.CancelDisabled" OnClick="_appointmentVM.Cancel">Cancel</MudButton>
+            }
+        </MudItem>
+    </MudGrid>
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        await _appointmentVM.SetAppointmentFacadeProperties();
+
+        _appointmentVM.OnChange += StateHasChanged;
+    }
+}

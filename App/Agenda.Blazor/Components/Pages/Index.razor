@@ -1,0 +1,13 @@
+﻿@page "/"
+
+@inject NavigationManager _navigationManager
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _navigationManager.NavigateTo("/Login", true);
+    }
+}

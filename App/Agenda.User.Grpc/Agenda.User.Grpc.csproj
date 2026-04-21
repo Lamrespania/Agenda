@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <Protobuf Include="Protos\Role.proto" GrpcServices="None" />
+    <Protobuf Include="Protos\get.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\insert.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.64.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Agenda.Common\Agenda.Common.csproj" />
+    <ProjectReference Include="..\Agenda.UserDb.Local\Agenda.UserDb.Local.csproj" />
+  </ItemGroup>
+
+</Project>
